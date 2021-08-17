@@ -243,8 +243,36 @@ body {
     align-items: center;
     background: #f6f6f6;
     border: 1px solid transparent;
+    font-weight: 700;
     cursor: pointer;
     transition: all .2s linear;
+}
+.calculator__button_image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-size: 32px;
+}
+.calculator__button_clear {
+    background-image: url(images/pic3.png);
+}
+.calculator__button_sqrt {
+    background-image: url(images/pic2.png);
+}
+.calculator__button_divide {
+    background-image: url(images/pic4.png);
+}
+.calculator__button_multiply {
+    background-image: url(images/pic5.png);
+}
+.calculator__button_minus {
+    background-image: url(images/pic6.png);
+}
+.calculator__button_plus {
+    background-image: url(images/pic7.png);
+}
+.calculator__button_pm {
+    background-image: url(images/pic8.png);
 }
 .calculator__button:hover {
     border: 1px solid #107479;
