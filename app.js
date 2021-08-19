@@ -1,51 +1,98 @@
-let calculator = document.getElementById('calculator');
-let input = document.getElementById('result');
-let clearSymbol = document.getElementById('clear-symbol');
-let clearAll = document.getElementById('clear');
-let summary = document.getElementById('summary');
-let result;
-let number = '';
+let numbers = document.querySelectorAll(".number"),
+    operations = document.querySelectorAll(".operator"),
+    clearBtns = document.querySelectorAll(".clear-btn"),
+    decimalBtn = document.getElementById("decimal"),
+    display = document.getElementById("display"),
+    memory = 0,
+    flag = false,
+    memoryOperate = "";
 
-calculator.addEventListener('click', event => {
-    if (event.target.classList.contains('clear')) {
-        input.value = '0';
-        number = '';
-    }
-    if (event.target.classList.contains('calculator__button_clear')) {
-        let value = input.value;
-        value = value.substring(0, value.length - 1);
-        input.value = value;
-        number = '';
-    }
-    if (event.target.classList.contains('number') || event.target.classList.contains('operator')) {        
-        number += event.target.dataset.value;
-        input.value = number;
-    }
-})
-summary.addEventListener('click', () => {
-    let operator = ['*', '/', '+', '-'];
-        console.log('aaa')
-        switch(operator) {
-            case '*':
-                result = number * number;
-                console.log(number);
-                input.value = result;
-                console.log(result)
-                break;
-            case '/':
-                result = number / number;
-                input.value = result;
-                console.log(result)
-                break;
-            case '+':
-                result = number + number;
-                input.value = result;
-                console.log(result)
-                break;
-            case '-':
-                result = number - number;
-                input.value = result;
-                console.log(result)
-                break;
+
+
+for (let i = 0; i < numbers.length; i++) {
+    let number = numbers[i];
+    number.addEventListener("click", function (e) {
+        pressNumber(e.target.textContent);
+    });
+};
+
+for (let i = 0; i < operations.length; i++) {
+    let operationBtn = operations[i];
+    operationBtn.addEventListener("click", function (e) {
+        pressOperation(e.target.textContent);
+    });
+};
+
+for (let i = 0; i < clearBtns.length; i++) {
+    let clearBtn = clearBtns[i];
+    clearBtn.addEventListener("click", function (e) {
+        clear(e.target.textContent);
+    });
+};
+
+decimalBtn.addEventListener("click", decimal);
+
+function pressNumber(number) {
+    if (flag) {
+        display.value = number;
+        flag = false;
+    } else {
+        if (display.value === "0") {
+            display.value = number;
+        } else {
+            display.value += number;
+        };
+    };
+};
+
+function pressOperation(operate) {
+    let memoryLocal = display.value;
+
+    if (flag && memoryOperate !== "=") {
+        display.value = memory;
+    } else {
+        flag = true;
+        if (memoryOperate === "+") {
+            memory += +memoryLocal;
+        } else if (memoryOperate === "-") {
+            memory -= +memoryLocal;
+        } else if (memoryOperate === "*") {
+            memory *= +memoryLocal;
+        } else if (memoryOperate === "/") {
+            memory /= +memoryLocal;
+        } else {
+            memory = +memoryLocal;
         }
-})
+        display.value = memory;
+        memoryOperate = operate;
+    };
+
+}
+
+function decimal() {
+    let decimalMemory = display.value;
+
+    if (flag) {
+        decimalMemory = "0.";
+        flag = false;
+    } else {
+        if (decimalMemory.indexOf(".") === -1) {
+            decimalMemory += "."
+        }
+    };
+    display.value = decimalMemory;
+};
+
+function clear(id) {
+    if (id === "cl") {
+        let value = display.value;
+        value = value.slice(0, value.length - 1);
+        display.value = value;
+        flag = true;
+    } else if (id === "c") {
+        display.value = "0";
+        flag = true;
+        memory = 0,
+        memoryOperate = "";
+    }
+};

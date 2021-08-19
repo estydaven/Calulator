@@ -33,22 +33,22 @@
             </nav>
             <main class="calculator__body">
                 <div class="calculator__input">
-                    <input type="text" id="result" class="calculator__field" name="result" value="0" disabled>
+                    <input type="text" id="display" class="calculator__field" name="display" value="0" disabled>
                 </div>
                 <div class="calculator__block">
-                    <div class="block block_gray">MC</div>
-                    <div class="block block_gray">MR</div>
-                    <div class="block block_border">M+</div>
-                    <div class="block block_border">M-</div>
-                    <div class="block block_border">MS</div>
-                    <div class="block block_gray">M*</div>
+                    <div class="block block_gray">mc</div>
+                    <div class="block block_gray">mr</div>
+                    <div class="block block_border">m+</div>
+                    <div class="block block_border">m-</div>
+                    <div class="block block_border">ms</div>
+                    <div class="block block_gray">m*</div>
                 </div>
                 <div class="calculator__block calculator__block_gap" id="calculator">
-                    <div class="calculator__button calculator__button_gray" data-value="%">%</div>
-                    <div class="calculator__button calculator__button_gray" data-value="CE">CE</div>
-                    <div class="calculator__button calculator__button_gray clear" id="clear" data-value="C">C</div>
-                    <div class="calculator__button calculator__button_image calculator__button_gray calculator__button_clear" id="clear-symbol" data-value="CL"></div>
-                    <div class="calculator__button calculator__button_gray" data-value="1/x">
+                    <button type="button" class="calculator__button calculator__button_gray">%</button>
+                    <button type="button" class="calculator__button calculator__button_gray">ce</button>
+                    <button type="button" class="calculator__button calculator__button_gray clear-btn" id="c">c</button>
+                    <button type="button" class="calculator__button calculator__button_image calculator__button_gray clear-btn calculator__button_clear" id="cl">cl</button>
+                    <button type="button" class="calculator__button calculator__button_gray">
                         <span>
                             <sup>1</sup>
                         </span>
@@ -56,37 +56,37 @@
                         <span class="x-sign">
                             <sub><em>x</em></sub>
                         </span>
-                    </div>
-                    <div class="calculator__button calculator__button_gray" data-value="sqr">
+                    </button>
+                    <button type="button" class="calculator__button calculator__button_gray operator">
                         <span class="x-sign">
                             <sub>x</sub>
                         </span>
                         <span>
                             <sup>2</sup>
                         </span>
-                    </div>
-                    <div class="calculator__button calculator__button_image calculator__button_gray calculator__button_sqrt" data-value="sqrt"></div>
-                    <div class="calculator__button calculator__button_image calculator__button_gray calculator__button_divide operator" id="div" data-value="/"></div>
-                    <div class="calculator__button number" id="btn_7" data-value="7">7</div>
-                    <div class="calculator__button number" id="btn_8" data-value="8">8</div>
-                    <div class="calculator__button number" id="btn_9" data-value="9">9</div>
-                    <div class="calculator__button calculator__button_image calculator__button_gray calculator__button_multiply operator" id="mult" data-value="*"></div>
-                    <div class="calculator__button number" id="btn_4" data-value="4">4</div>
-                    <div class="calculator__button number" id="btn_5" data-value="5">5</div>
-                    <div class="calculator__button number" id="btn_6" data-value="6">6</div>
-                    <div class="calculator__button calculator__button_image calculator__button_gray calculator__button_minus operator" id="sub" data-value="-"></div>
-                    <div class="calculator__button number" id="btn_1" data-value="1">1</div>
-                    <div class="calculator__button number" id="btn_2" data-value="2">2</div>
-                    <div class="calculator__button number" id="btn_3" data-value="3">3</div>
-                    <div class="calculator__button calculator__button_image calculator__button_gray calculator__button_plus operator" id="plus" data-value="+"></div>
-                    <div class="calculator__button calculator__button_image calculator__button_pm" data-value="+-"></div>
-                    <div class="calculator__button number" id="btn_0" data-value="0">0</div>
-                    <div class="calculator__button" data-value=".">.</div>
-                    <div class="calculator__button calculator__button_blue" id="summary" data-value="=">=</div>
+                    </button>
+                    <button type="button" class="calculator__button calculator__button_image calculator__button_gray calculator__button_sqrt"></button>
+                    <button type="button" class="calculator__button calculator__button_image calculator__button_gray calculator__button_divide operator">/</button>
+                    <button type="button" class="calculator__button number">7</button>
+                    <button type="button" class="calculator__button number">8</button>
+                    <button type="button" class="calculator__button number">9</button>
+                    <button type="button" class="calculator__button calculator__button_image calculator__button_gray calculator__button_multiply operator">*</button>
+                    <button type="button" class="calculator__button number">4</button>
+                    <button type="button" class="calculator__button number">5</button>
+                    <button type="button" class="calculator__button number">6</button>
+                    <button type="button" class="calculator__button calculator__button_image calculator__button_gray calculator__button_minus operator">-</button>
+                    <button type="button" class="calculator__button number">1</button>
+                    <button type="button" class="calculator__button number">2</button>
+                    <button type="button" class="calculator__button number">3</button>
+                    <button type="button" class="calculator__button calculator__button_image calculator__button_gray calculator__button_plus operator">+</button>
+                    <button type="button" class="calculator__button calculator__button_image calculator__button_pm operator">+-</button>
+                    <button type="button" class="calculator__button number">0</button>
+                    <button type="button" class="calculator__button" id="decimal">.</button>
+                    <button type="button" class="calculator__button calculator__button_blue operator">=</button>
                 </div>
             </main>
         </div>
     </div>
-    <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
