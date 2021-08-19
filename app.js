@@ -4,7 +4,7 @@ let numbers = document.querySelectorAll(".number"),
     decimalBtn = document.getElementById("decimal"),
     display = document.getElementById("display"),
     memory = 0,
-    flag = false,
+    newNumberExist = false,
     memoryOperate = "";
 
 
@@ -33,9 +33,9 @@ for (let i = 0; i < clearBtns.length; i++) {
 decimalBtn.addEventListener("click", decimal);
 
 function pressNumber(number) {
-    if (flag) {
+    if (newNumberExist) {
         display.value = number;
-        flag = false;
+        newNumberExist = false;
     } else {
         if (display.value === "0") {
             display.value = number;
@@ -48,10 +48,10 @@ function pressNumber(number) {
 function pressOperation(operate) {
     let memoryLocal = display.value;
 
-    if (flag && memoryOperate !== "=") {
+    if (newNumberExist && memoryOperate !== "=") {
         display.value = memory;
     } else {
-        flag = true;
+        newNumberExist = true;
         if (memoryOperate === "+") {
             memory += +memoryLocal;
         } else if (memoryOperate === "-") {
@@ -72,9 +72,9 @@ function pressOperation(operate) {
 function decimal() {
     let decimalMemory = display.value;
 
-    if (flag) {
+    if (newNumberExist) {
         decimalMemory = "0.";
-        flag = false;
+        newNumberExist = false;
     } else {
         if (decimalMemory.indexOf(".") === -1) {
             decimalMemory += "."
@@ -88,10 +88,10 @@ function clear(id) {
         let value = display.value;
         value = value.slice(0, value.length - 1);
         display.value = value;
-        flag = true;
+        newNumberExist = true;
     } else if (id === "c") {
         display.value = "0";
-        flag = true;
+        newNumberExist = true;
         memory = 0,
         memoryOperate = "";
     }
